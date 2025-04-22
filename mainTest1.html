@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вебдизайн Хурма</title>
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: darkorchid;
+            font-size: 50px;
+            background-color: #ff0;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .color-btn {
+            width: 100px;
+            height: 50px;
+            display: inline-block;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .slider-container {
+            margin-top: 20px;
+        }
+        .slider-container label {
+            display: block;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .slider-container input {
+            width: 200px;
+        }
+        .slider-value {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ми вивчаємо вебдизайн</h1>
+    <div id="color-buttons">
+        <button class="color-btn" style="background-color: #f00;" onclick="changeBackground('#f00')"></button>
+        <button class="color-btn" style="background-color: #00f;" onclick="changeBackground('#00f')"></button>
+        <button class="color-btn" style="background-color: #0ff;" onclick="changeBackground('#0ff')"></button>
+        <button class="color-btn" style="background-color: #f0f;" onclick="changeBackground('#f0f')"></button>
+        <button class="color-btn" style="background-color: #3f3f3f;" onclick="changeBackground('#3f3f3f')"></button>
+        <button class="color-btn" style="background-color: #303a3a;" onclick="changeBackground('#303a3a')"></button>
+        <button class="color-btn" style="background-color: #808080;" onclick="changeBackground('#808080')"></button>
+        <button class="color-btn" style="background-color: rgb(255, 255, 0);" onclick="changeBackground('rgb(255, 255, 0)')"></button>
+        <button class="color-btn" style="background-color: rgb(255, 255, 255); border: 1px solid black;" onclick="changeBackground('rgb(255, 255, 255)')"></button>
+        <button class="color-btn" style="background-color: rgb(128, 0, 128);" onclick="changeBackground('rgb(128, 0, 128)')"></button>
+    </div>
+    <div class="slider-container">
+        <label>Red: <input type="range" id="red" min="0" max="255" value="255" oninput="updateRGB()"><span class="slider-value" id="redValue">255</span></label>
+        <label>Green: <input type="range" id="green" min="0" max="255" value="255" oninput="updateRGB()"><span class="slider-value" id="greenValue">255</span></label>
+        <label>Blue: <input type="range" id="blue" min="0" max="255" value="255" oninput="updateRGB()"><span class="slider-value" id="blueValue">255</span></label>
+    </div>
+    <br>
+    <a href="#" class="btn">Дізнатися більше</a>
+
+    <script>
+        function changeBackground(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function updateRGB() {
+            let r = document.getElementById('red').value;
+            let g = document.getElementById('green').value;
+            let b = document.getElementById('blue').value;
+            document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+            document.getElementById('redValue').textContent = r;
+            document.getElementById('greenValue').textContent = g;
+            document.getElementById('blueValue').textContent = b;
+        }
+    </script>
+</body>
+</html>
